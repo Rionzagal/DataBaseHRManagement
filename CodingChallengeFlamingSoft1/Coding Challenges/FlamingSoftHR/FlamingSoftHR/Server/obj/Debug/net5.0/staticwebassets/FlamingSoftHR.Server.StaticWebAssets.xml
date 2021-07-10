@@ -1,0 +1,7 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Client\bin\Debug\net5.0\wwwroot\" />
+  <ContentRoot BasePath="/" Path="E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Client\obj\Debug\net5.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="/" Path="E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Client\wwwroot\" />
+  <ContentRoot BasePath="/Identity" Path="C:\Users\cesar\.nuget\packages\microsoft.aspnetcore.identity.ui\5.0.7\staticwebassets\V4\" />
+  <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="C:\Users\cesar\.nuget\packages\microsoft.aspnetcore.components.webassembly.authentication\5.0.7\build\..\staticwebassets\" />
+</StaticWebAssets>

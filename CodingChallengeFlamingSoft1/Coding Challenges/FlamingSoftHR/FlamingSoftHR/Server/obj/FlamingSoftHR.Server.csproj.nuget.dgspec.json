@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Server\\FlamingSoftHR.Server.csproj": {}
+  },
+  "projects": {
+    "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Client\\FlamingSoftHR.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Client\\FlamingSoftHR.Client.csproj",
+        "projectName": "FlamingSoftHR.Client",
+        "projectPath": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Client\\FlamingSoftHR.Client.csproj",
+        "packagesPath": "C:\\Users\\cesar\\.nuget\\packages\\",
+        "outputPath": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cesar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Shared\\FlamingSoftHR.Shared.csproj": {
+                "projectPath": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Shared\\FlamingSoftHR.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
+              "version": "[5.0.7, 5.0.7]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Server\\FlamingSoftHR.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Server\\FlamingSoftHR.Server.csproj",
+        "projectName": "FlamingSoftHR.Server",
+        "projectPath": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Server\\FlamingSoftHR.Server.csproj",
+        "packagesPath": "C:\\Users\\cesar\\.nuget\\packages\\",
+        "outputPath": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cesar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Client\\FlamingSoftHR.Client.csproj": {
+                "projectPath": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Client\\FlamingSoftHR.Client.csproj"
+              },
+              "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Shared\\FlamingSoftHR.Shared.csproj": {
+                "projectPath": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Shared\\FlamingSoftHR.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Shared\\FlamingSoftHR.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Shared\\FlamingSoftHR.Shared.csproj",
+        "projectName": "FlamingSoftHR.Shared",
+        "projectPath": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Shared\\FlamingSoftHR.Shared.csproj",
+        "packagesPath": "C:\\Users\\cesar\\.nuget\\packages\\",
+        "outputPath": "E:\\Shared\\FlamingShare\\FlamingSoft\\Flamingsoft Mexico\\Coding Challenges\\FlamingSoftHR\\FlamingSoftHR\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cesar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

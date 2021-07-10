@@ -1,0 +1,12 @@
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\bin\Debug\net5.0\FlamingSoftHR.Shared.deps.json
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\bin\Debug\net5.0\FlamingSoftHR.Shared.dll
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\bin\Debug\net5.0\ref\FlamingSoftHR.Shared.dll
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\bin\Debug\net5.0\FlamingSoftHR.Shared.pdb
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.csprojAssemblyReference.cache
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.GeneratedMSBuildEditorConfig.editorconfig
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.AssemblyInfoInputs.cache
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.AssemblyInfo.cs
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.csproj.CoreCompileInputs.cache
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.dll
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\ref\FlamingSoftHR.Shared.dll
+E:\Shared\FlamingShare\FlamingSoft\Flamingsoft Mexico\Coding Challenges\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.pdb
