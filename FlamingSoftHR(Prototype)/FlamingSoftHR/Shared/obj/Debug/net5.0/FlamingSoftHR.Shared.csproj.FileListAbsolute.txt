@@ -1,0 +1,12 @@
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\bin\Debug\net5.0\FlamingSoftHR.Shared.deps.json
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\bin\Debug\net5.0\FlamingSoftHR.Shared.dll
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\bin\Debug\net5.0\ref\FlamingSoftHR.Shared.dll
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\bin\Debug\net5.0\FlamingSoftHR.Shared.pdb
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.csproj.AssemblyReference.cache
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.AssemblyInfoInputs.cache
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.AssemblyInfo.cs
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.csproj.CoreCompileInputs.cache
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.dll
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\ref\FlamingSoftHR.Shared.dll
+C:\Users\mgzzg\OneDrive\Escritorio\CodingChallengeFS\FlamingSoftHR\FlamingSoftHR\Shared\obj\Debug\net5.0\FlamingSoftHR.Shared.pdb

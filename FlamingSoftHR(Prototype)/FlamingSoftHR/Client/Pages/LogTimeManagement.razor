@@ -1,0 +1,63 @@
+﻿@page "/LogTimeManagement"
+@inject HttpClient http
+@using FlamingSoftHR.Client.Components
+@using FlamingSoftHR.Shared.Models
+@using System.Reflection
+
+@code {
+    private List<LogTime> lTimeList;
+    private LogTime newlog = new LogTime();
+    private string filter;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        lTimeList = await http.GetFromJsonAsync<List<LogTime>>("/api/LogTime");
+    }
+
+    protected async Task Search()
+    {
+        lTimeList = await http.GetFromJsonAsync<List<LogTime>>($"/api/LogTime?UserId={Uri.EscapeDataString(filter)}");
+    }
+
+    protected async Task Add()
+    {
+        using (var msg = await http.PostAsJsonAsync<LogTime>("/api/LogTime", newlog, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                newlog.DateLogged = DateTime.Now;
+                newlog.Hours = 0.0;
+                newlog.LogtypeId = newlog.LoggedEmployee = 0;
+            }
+        }
+    }
+
+    protected async Task Save(ChangeEventArgs e, LogTime login, string propfield)
+    {
+        PropertyInfo pInfo = typeof(LogTime).GetProperty(propfield);
+        pInfo.SetValue(login, e);
+
+        using (var msg = await http.PutAsJsonAsync<LogTime>($"/api/LogTime/{login.Id}", login, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode) { }
+            else
+            {
+                //Mostrar estado de error
+            }
+        }
+    }
+
+    protected async Task Delete(Guid Id)
+    {
+        using (var msg = await http.DeleteAsync($"/api/LogTime/{Id}"))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                int i;
+                for (i = 0; lTimeList.Count > i && Id != lTimeList[i].Id; i++) ;
+                lTimeList.RemoveAt(i);
+            }
+        }
+    }
+}

@@ -1,0 +1,106 @@
+﻿@page "/LogTypeManagement"
+@inject HttpClient http
+@using FlamingSoftHR.Client.Components
+@using FlamingSoftHR.Shared.Models
+@using System.Reflection
+
+<h1>Log-in Type Management</h1>
+
+<form onsubmit="return false;">
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Search by Description</span>
+        <input type="text" class="form-control" @bind-value="filter" />
+        <button class="btn btn-primary" @onclick="Search">Search</button>
+    </div>
+</form>
+
+@if (null == lTypes)
+{
+    <p><em>Loading log-in types. Please wait...</em></p>
+}
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thread>
+            <tr><th>Description</th></tr>
+        </thread>
+        <tbody>
+            <ListDisplayComponent Items="lTypes">
+                <Row Context="ltype">
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" value="@ltype.Description" @onchange="@((ChangeEventArgs e) => Save(e, ltype, "Description"))" />
+                        </td>
+                        <td>
+                            <button class="btn btn-5m btn-danger" @onclick="@(() => Delete(ltype.Id))">Delete</button>
+                        </td>
+                    </tr>
+                </Row>
+            </ListDisplayComponent>
+        </tbody>
+    </table>
+</div>
+
+<form class="mt-5" onsubmit="return false;">
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Description</span>
+        <input type="text" class="form-control" autocomplete="off" required @bind-value="@newltype.Description" />
+        <button class="btn btn-success" @onclick="Add">Add new log-in type</button>
+    </div>
+</form>
+
+@code {
+    private List<LogType> lTypes;
+    private LogType newltype = new LogType();
+    private string filter;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        lTypes = await http.GetFromJsonAsync<List<LogType>>("/api/LogType");
+    }
+
+    protected async Task Search()
+    {
+        lTypes = await http.GetFromJsonAsync<List<LogType>>($"/api/LogType?UserId={Uri.EscapeDataString(filter)}");
+    }
+
+    protected async Task Add()
+    {
+        using (var msg = await http.PostAsJsonAsync<LogType>("/api/LogType", newltype, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                newltype.Description = null;
+            }
+        }
+    }
+
+    protected async Task Save(ChangeEventArgs e, LogType ltype, string propfield)
+    {
+        PropertyInfo pInfo = typeof(LogType).GetProperty(propfield);
+        pInfo.SetValue(ltype, e);
+
+        using (var msg = await http.PutAsJsonAsync<LogType>($"/api/LogType/{ltype.Id}", ltype, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode) { }
+            else
+            {
+                //Mostrar estado de error
+            }
+        }
+    }
+
+    protected async Task Delete(Guid Id)
+    {
+        using (var msg = await http.DeleteAsync($"/api/LogType/{Id}"))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                int i;
+                for (i = 0; lTypes.Count > i && Id != lTypes[i].Id; i++) ;
+                lTypes.RemoveAt(i);
+            }
+        }
+    }
+}

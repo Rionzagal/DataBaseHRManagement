@@ -1,0 +1,146 @@
+﻿@page "/EmployeeManagement"
+@inject HttpClient http
+@using FlamingSoftHR.Client.Components
+@using FlamingSoftHR.Shared.Models
+@using System.Reflection
+
+
+<h1>Log-in Type Management</h1>
+
+<form onsubmit="return false;">
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Search by Description</span>
+        <input type="text" class="form-control" @bind-value="filter" />
+        <button class="btn btn-primary" @onclick="Search">Search</button>
+    </div>
+</form>
+
+@if (null == employees)
+{
+    <p><em>Loading Employees. Please wait...</em></p>
+}
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thread>
+            <tr><th>Description</th></tr>
+        </thread>
+        <tbody>
+            <ListDisplayComponent Items="employees">
+                <Row Context="employee">
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" value="@employee.FirstName" @onchange="@((ChangeEventArgs e) => Save(e, employee, "FirstName"))" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" value="@employee.MiddleName" @onchange="@((ChangeEventArgs e) => Save(e, employee, "MiddleName"))" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" value="@employee.LastName" @onchange="@((ChangeEventArgs e) => Save(e, employee, "LastName"))" />
+                        </td>
+                        <td>
+                            <button class="btn btn-5m btn-danger" @onclick="@(() => Delete(employee.Id))">Delete</button>
+                        </td>
+                    </tr>
+                </Row>
+            </ListDisplayComponent>
+        </tbody>
+    </table>
+</div>
+
+<form class="mt-5" onsubmit="return false;">
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">First Name</span>
+        <input type="text" class="form-control" autocomplete="off" required @bind-value="@newemployee.FirstName" />
+    </div>
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Middle Name</span>
+        <input type="text" class="form-control" autocomplete="off" required @bind-value="@newemployee.MiddleName" />
+    </div>
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Last Name</span>
+        <input type="text" class="form-control" autocomplete="off" required @bind-value="@newemployee.LastName" />
+    </div>
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Department</span>
+        <InputSelect id="Department" @bind-Value="newemployee.DepartmentId" class="form-control">
+            @foreach (var department in departments)
+                {
+                    <option value="@department.Id">@department.Name</option>
+                }
+        </InputSelect>
+    </div>
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Employee Type</span>
+        <InputSelect id="EmployeeType" @bind-Value="newemployee.EmployeeType" class="form-control">
+            @foreach (var etype in etypes)
+                {
+                    <option value="@etype.Id">@etype.Description</option>
+                }
+        </InputSelect>
+    </div>
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">First Name</span>
+        <input type="text" class="form-control" autocomplete="off" required @bind-value="@newemployee.FirstName" />
+        <button class="btn btn-success" @onclick="Add">Add new log-in type</button>
+    </div>
+</form>
+
+@code {
+    private List<Employees> employees;
+    private List<EmployeeType> etypes;
+    private List<Department> departments;
+    private Employees newemployee = new Employees();
+    private string filter;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        employees = await http.GetFromJsonAsync<List<Employees>>("/api/Employees");
+    }
+
+    protected async Task Search()
+    {
+        employees = await http.GetFromJsonAsync<List<Employees>>($"/api/Employees?UserId={Uri.EscapeDataString(filter)}");
+    }
+
+    protected async Task Add()
+    {
+        using (var msg = await http.PostAsJsonAsync<Employees>("/api/Employees", newemployee, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                newemployee.UserId = newemployee.FirstName = newemployee.MiddleName = newemployee.LastName = null;
+                newemployee.EmployeeType = newemployee.Department = 0;
+            }
+        }
+    }
+
+    protected async Task Save(ChangeEventArgs e, Employees employee, string propfield)
+    {
+        PropertyInfo pInfo = typeof(Employees).GetProperty(propfield);
+        pInfo.SetValue(employee, e);
+
+        using (var msg = await http.PutAsJsonAsync<Employees>($"/api/Employees/{employee.Id}", employee, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode) { }
+            else
+            {
+                //Mostrar estado de error
+            }
+        }
+    }
+
+    protected async Task Delete(Guid Id)
+    {
+        using (var msg = await http.DeleteAsync($"/api/Employees/{Id}"))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                int i;
+                for (i = 0; employees.Count > i && Id != employees[i].Id; i++) ;
+                employees.RemoveAt(i);
+            }
+        }
+    }
+}

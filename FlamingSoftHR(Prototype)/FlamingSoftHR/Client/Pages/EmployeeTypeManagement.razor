@@ -1,0 +1,106 @@
+﻿@page "/EmployeeTypeManagement"
+@inject HttpClient http
+@using FlamingSoftHR.Client.Components
+@using FlamingSoftHR.Shared.Models
+@using System.Reflection
+
+<h1>Employee Type Management</h1>
+
+<form onsubmit="return false;">
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Search by Description</span>
+        <input type="text" class="form-control" @bind-value="filter" />
+        <button class="btn btn-primary" @onclick="Search">Search</button>
+    </div>
+</form>
+
+@if (null == eTypes)
+{
+    <p><em>Loading employee types. Please wait...</em></p>
+}
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thread>
+            <tr><th>Description</th></tr>
+        </thread>
+        <tbody>
+            <ListDisplayComponent Items="eTypes">
+                <Row Context="etype">
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" value="@etype.Description" @onchange="@((ChangeEventArgs e) => Save(e, etype, "Description"))" />
+                        </td>
+                        <td>
+                            <button class="btn btn-5m btn-danger" @onclick="@(() => Delete(etype.Id))">Delete</button>
+                        </td>
+                    </tr>
+                </Row>
+            </ListDisplayComponent>
+        </tbody>
+    </table>
+</div>
+
+<form class="mt-5" onsubmit="return false;">
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Description</span>
+        <input type="text" class="form-control" autocomplete="off" required @bind-value="@newetype.Description" />
+        <button class="btn btn-success" @onclick="Add">Add employee type</button>
+    </div>
+</form>
+
+@code {
+    private List<EmployeeType> eTypes;
+    private EmployeeType newetype = new EmployeeType();
+    private string filter;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        eTypes = await http.GetFromJsonAsync<List<EmployeeType>>("/api/EmployeeType");
+    }
+
+    protected async Task Search()
+    {
+        eTypes = await http.GetFromJsonAsync<List<EmployeeType>>($"/api/EmployeeType?UserId={Uri.EscapeDataString(filter)}");
+    }
+
+    protected async Task Add()
+    {
+        using (var msg = await http.PostAsJsonAsync<EmployeeType>("/api/EmployeeType", newetype, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                newetype.Description = null;
+            }
+        }
+    }
+
+    protected async Task Save(ChangeEventArgs e, EmployeeType etype, string propfield)
+    {
+        PropertyInfo pInfo = typeof(EmployeeType).GetProperty(propfield);
+        pInfo.SetValue(etype, e);
+
+        using (var msg = await http.PutAsJsonAsync<EmployeeType>($"/api/EmployeeType/{etype.Id}", etype, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode) { }
+            else
+            {
+                //Mostrar estado de error
+            }
+        }
+    }
+
+    protected async Task Delete(Guid Id)
+    {
+        using (var msg = await http.DeleteAsync($"/api/EmployeeType/{Id}"))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                int i;
+                for (i = 0; eTypes.Count > i && Id != eTypes[i].Id; i++) ;
+                eTypes.RemoveAt(i);
+            }
+        }
+    }
+}

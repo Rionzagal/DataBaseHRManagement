@@ -1,0 +1,107 @@
+﻿@page "/Departments"
+@inject HttpClient http
+@using FlamingSoftHR.Shared.Models
+@using FlamingSoftHR.Client.Components
+@using System.Reflection
+
+<h1>Department Management Module</h1>
+
+<form onsubmit="return false;">
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Search by Name</span>
+        <input type="text" class="form-control" @bind-value="filter" />
+        <button class="btn btn-primary" @onclick="Search">Search</button>
+    </div>
+</form>
+
+@if(null == deps)
+ {
+    <p><em>Loading departments. Please wait...</em></p>
+ }
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thread>
+            <tr><th>Name</th></tr>
+        </thread>
+        <tbody>
+            <ListDisplayComponent Items="deps">
+                <Row Context="dep">
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" value="@dep.Name" @onchange="@((ChangeEventArgs e) => Save(e, dep, "Name"))"/>
+                        </td>
+                        <td>
+                            <button class="btn btn-5m btn-danger" @onclick="@(() => Delete(dep.Id))">Delete</button>
+                        </td>
+                    </tr>
+                </Row>
+            </ListDisplayComponent>
+        </tbody>
+    </table>
+</div>
+
+<form class="mt-5" onsubmit="return false;">
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Name</span>
+        <input type="text" class="form-control" autocomplete="off" required @bind-value="@newDepartment.Name" />
+        <button class="btn btn-success" @onclick="Add">Add department</button>
+    </div>
+</form>
+
+@code {
+    private List<Department> deps;
+    private Department newDepartment = new Department();
+    private string filter;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        deps = await http.GetFromJsonAsync<List<Department>>($"api/Department");
+    }
+
+    private async Task Search()
+    {
+        deps = await http.GetFromJsonAsync<List<Department>>($"/api/Department?name={Uri.EscapeDataString(filter)}");
+    }
+
+    private async Task Add()
+    {
+        using (var msg = await http.PostAsJsonAsync<Department>($"/api/Departments", newDepartment, System.Threading.CancellationToken.None))
+        {
+            if(msg.IsSuccessStatusCode)
+            {
+                deps.Add(await msg.Content.ReadFromJsonAsync<Department>());
+                newDepartment.Name = null;
+            }
+        }
+    }
+
+    private async Task Save(ChangeEventArgs e, Department dep, string propField)
+    {
+        PropertyInfo pInfo = typeof(Department).GetProperty(propField);
+        pInfo.SetValue(dep, e.Value);
+
+        using (var msg = await http.PutAsJsonAsync<Department>($"/api/Departments/{dep.Id}", dep, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode) { }
+            else
+            {
+                //Mostrar estado de error
+            }
+        }
+    }
+
+    private async Task Delete(Guid Id)
+    {
+        using (var msg = await http.DeleteAsync($"/api/Departments/{Id}"))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                int i;
+                for (i = 0; i < deps.Count && Id != deps[i].Id; i++) ;
+                deps.RemoveAt(i);
+            }
+        }
+    }
+}
